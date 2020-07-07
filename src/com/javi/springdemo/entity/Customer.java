@@ -1,11 +1,15 @@
 package com.javi.springdemo.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.javi.hibernate.demo.entity.Review;
 
 //Map class to database table
 
@@ -21,13 +25,14 @@ public class Customer {
 	private int id;
 	
 	@Column(name="first_name")
-	private String firstNAme;
+	private String firstName;
 	
 	@Column(name="last_name")
 	private String lastName;
 	
 	@Column(name="email")
 	private String email;
+	
 	
 	// default constructor
 	
@@ -46,12 +51,12 @@ public class Customer {
 		this.id = id;
 	}
 
-	public String getFirstNAme() {
-		return firstNAme;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirstNAme(String firstNAme) {
-		this.firstNAme = firstNAme;
+	public void setFirstNAme(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -76,7 +81,7 @@ public class Customer {
 	
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", firstNAme=" + firstNAme + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
 	
 
