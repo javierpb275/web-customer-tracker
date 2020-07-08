@@ -27,6 +27,13 @@
 	
 		<div id="content">
 		
+		<!-- put new button: Add Customer -->
+		
+		<input type="button" value="Add Customer"
+			onClick="window.location.href='showFormForAdd'; return false;"
+			class="add-button"
+		/><!-- Call our Spring Controller mapping -->
+		
 			<!--  add our html table here -->
 		
 			<table>
