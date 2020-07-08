@@ -18,8 +18,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 			
-	@Override
-	@Transactional
+	@Override// We removed the @Transactional because we have moved this functionality up to the Service layer so the Service will start the transaction and then it will make the appropriate calls for our DAOs and then the service will clean up the transactions
 	public List<Customer> getCustomers() {
 		
 		// get the current hibernate session

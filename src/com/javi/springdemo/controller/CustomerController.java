@@ -5,24 +5,27 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javi.springdemo.dao.CustomerDAO;
 import com.javi.springdemo.entity.Customer;
+import com.javi.springdemo.service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 	
-	// need to inject the customer DAO (Data Access Object)
+	// We are no longer gonna use our DAO(Data Acces Object) instead we're gonna use our new Service layer(Customer Service)
+	// need to inject our customer service
 	@Autowired
-	private CustomerDAO customerDAO;//Spring will scan for a component that implements CustomerDAO interface
+	private CustomerService customerService;
 	
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		
-		// get customers from the DAO
-		List<Customer> theCustomers = customerDAO.getCustomers();
+		// get customers the Customer Service layer (no longer from the DAO)
+		List<Customer> theCustomers = customerService.getCustomers();//Delegate calls to Service
 						
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);//name, value
