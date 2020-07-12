@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %><!-- Add support for JSTL Core tags -->
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %><!-- FORM tags -->
 
 <!DOCTYPE html>
 
@@ -33,6 +34,13 @@
 			onClick="window.location.href='showFormForAdd'; return false;"
 			class="add-button"
 		/><!-- Call our Spring Controller mapping -->
+		
+		<!--  add a search box -->
+            <form:form action="search" method="POST">
+                Search customer: <input type="text" name="theSearchName" />
+                
+                <input type="submit" value="Search" class="add-button" />
+            </form:form>
 		
 			<!--  add our html table here -->
 		
